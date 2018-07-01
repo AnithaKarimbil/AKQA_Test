@@ -3,6 +3,8 @@ package AKQA_Test.AKQA_Test;
 import static org.testng.Assert.assertEquals;
 
 import java.io.File;
+
+import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -64,20 +66,26 @@ public class BunningsWishListTest  {
 	 @Test
 	 public void verifyWishList() throws Exception{
 		//Opens the url 
+		Reporter.log("Open Browser");
 		homepage.openUrl(url);
 		//Searches the SearchItem
+		Reporter.log("Search item" +searchItem);
 		homepage.search(searchItem);
 		//Selects a random product
+		Reporter.log("Click random product");
 		homepage.clickRandomProduct();
 		//Gets the selected product's id
 		String productID = productpage.getProductID();
 		//Clicks on Add to WishList
+		Reporter.log("Add to WishList");
 		productpage.clickAddToWishList();
 		//Opens the WishList
+		Reporter.log("Navigate to WishList");
 		productpage.openWishList();
 		//Verifies the Product ID in the WishList
 		boolean product = wishlist.verifyWishListProductList(productID);
 		//Asserts if the value is present(Fails if not)
+		Reporter.log("Verify if the product is added");
 		assertEquals(product, true);
 	  }
 	  

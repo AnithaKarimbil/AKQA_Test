@@ -21,6 +21,7 @@ public class HomePage extends InitializeDriver {
 		driver.findElement(By.xpath("//input[@data-page='/search']")).sendKeys(searchWord);
 		driver.findElement(By.xpath("//button[contains(@class,'btn-submit')]")).click();		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@class='search-result__tabs__item active']")));
+	
 	}
 	
 	/*
